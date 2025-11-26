@@ -1,0 +1,20 @@
+Item,Description,Quantity,URL,Unit Price,Total Price
+Raspberry Pi 4 Model B/4GB,SBC,1,https://www.pishop.ca/product/raspberry-pi-4-model-b-4gb/,$79.95,CAD $79.95
+ESP32 Wroom E DevKitC,MCU,1,https://www.aliexpress.com/w/wholesale-esp32-wroom-32e-dev-kit-c.html?spm=a2g0o.productlist.search.0,$5.00,CAD $5.00
+RPLIDAR C1,LIDAR,1,RPLIDAR C1,$101.64,CAD $101.64
+BNO055,IMU,1,GY-BNO055 9DOF 9-axis BNO055 Absolute Orientation Breakout Board Sensor Module Angle Gyroscope Module IIC Serial for - AliExpress,$11.39,CAD $11.39
+DRV8871,Motor Driver,2,Adafruit DRV8871 DC Motor Driver Breakout Board - 3.6A Max,$7.50,CAD $15.00
+JGA25-370B,Motors,2,"DIY Encoder 12V Magnetic 65mm with Motor Mount Bracket Motor Wheel Kit Micro Speed Reducing Motor Complete Metal for Smart Car Robot DIY Model (500rpm), Reducer Motor : Amazon.ca",$21.85,CAD $43.70
+Lipo 3000mAh 3S with charger,Battery,1,"AMZZN 3S Lipo Battery 11.1V 3000mAh 35C with T-Plug and USB Charging Cable for RC Cars, Trucks, Remote-Controlled Ships, RC Drones, Quadcopters, FPV UAV Batteries (1PCS Battery+1USB)",$29.39,CAD $29.39
+Mini360,Power Board,1,Mini360,$5.17,CAD $5.17
+UBEC,Power Board,1,2Pcs RC BEC UBEC 5V 5A Step Down UBEC Module 2S 3S 4S for FPV Quadcopter Airplane RC Servo RC Car Boat Model,$15.99,CAD $15.99
+Toggle Switch,Switch,1,"FULARR 8Pcs Professional Car Toggle Switch, ON/Off 2 Position SPST Metal Auto Rocker Switch, 2 Pin Rocker Toggle Switch, for Car Auto Truck Boat –– 10A 125VAC / 6A 250VAC : Amazon.ca",$9.99,CAD $9.99
+Fan,Fan,1,Easycargo 30mm Fan 5V 3.3V DC Quiet Fan for Raspberry Pi 5 4 3B+ 3007 (4-sets),$14.95,CAD $14.95
+Non-Polar,Capacitor,1,100pcs/200pcs 50V monolithic ceramic capacitor 10PF ~ 10UF 22PF 47NF 220NF 1NF 4.7UF 1UF 100NF 330NF 0.1UF 102 104 105 P=5.08mm - AliExpress,$1.96,CAD $1.96
+Polar,Capacitor,1,Aluminum Electrolytic Capacitor 6.3V 10V 16V 25V 35V 50V 63V 100V 400V 450V 10 47UF 100UF 220UF 330UF 470UF 680UF 1000UF 1500UF - AliExpress,$1.89,CAD $1.89
+Resetable Fuse,Fuse,1,Resettable Fuse 30V PTC Polymer PPTC DIP JK30 0.5A 0.75A 0.9A 1.1A 1.35A 1.6A 1.85A 2A 2.5A 3A 4A 5A 6A 7A 8A 9A 10A JinKe - AliExpress,$2.80,CAD $2.80
+Connecter,Battery,1,New 9Pairs T Plug Male Female Deans Connectors Style Plugs for RC Lipo Battery Rc Drone Airplane Car Boat - AliExpress,$1.64,CAD $1.64
+Caster Wheel,Wheel,1,Caster,$10.00,CAD $10.00
+,,,,,
+Subtotal,,,,,CAD $350.46
+Total (with taxes),,,,,USD $281.17
