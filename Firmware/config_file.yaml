@@ -1,0 +1,29 @@
+# Costmap Common Parameters
+
+# --- Robot Dimensions (Important for obstacle avoidance!) ---
+# Define the robot footprint shape as a polygon (x, y coordinates relative to base_link center)
+# The robot's costmap will grow around this shape.
+robot_radius: 0.25 # If you prefer a circular robot model (radius in meters)
+
+# OR: Use a polygon for a rectangular robot (more accurate)
+# footprint: [[0.25, 0.25], [0.25, -0.25], [-0.25, -0.25], [-0.25, 0.25]] # Example 50cm x 50cm
+
+# --- Sensor Definitions (How the robot sees the world) ---
+# We define the laser (LiDAR) input
+
+laser_layer:
+  # General settings
+  enabled: true
+  obstacle_range: 2.0    # Max range to consider obstacles (meters)
+  raytrace_range: 3.0    # Max range to clear obstacles behind the robot's path (meters)
+  max_obstacle_height: 0.5 # Maximum height of an obstacle to be considered
+
+  # Sensor source definitions
+  observation_sources: laser_scan_sensor
+  
+  laser_scan_sensor:
+    data_type: LaserScan
+    topic: /scan         # Standard ROS topic for LiDAR data (will be published by your RPLiDAR node)
+    marking: true        # Mark cells as occupied
+    clearing: true       # Clear cells as free space
+    min_obstacle_height: 0.05  # Ignore points below this height (prevents false positives from floor reflections)
