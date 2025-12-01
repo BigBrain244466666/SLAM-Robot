@@ -1,3 +1,5 @@
+# Code is used to transfer data from Pi to ESP
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import rospy
@@ -7,11 +9,9 @@ import time
 import math
 
 # --- Configuration ---
-# You may need to change the serial port if you use a different USB-Serial adapter
-SERIAL_PORT = '/dev/ttyACM0'  # Typical port for Arduino/ESP32 over USB
+SERIAL_PORT = '/dev/ttyACM0'
 BAUD_RATE = 115200
 
-# Constants for wheel mechanics (adjust based on your robot's size)
 WHEEL_RADIUS = 0.035  # meters
 BASE_WIDTH = 0.20     # distance between wheels, meters
 
@@ -28,32 +28,13 @@ def twist_callback(msg):
     global last_command_time
     last_command_time = rospy.get_time()
 
-    # 1. Extract linear (x) and angular (z) velocities
     linear_x = msg.linear.x    # Forward/Backward speed (m/s)
     angular_z = msg.angular.z  # Turning speed (rad/s)
-
-    # 2. Differential Drive Kinematics (Calculate Left and Right Wheel Speeds)
-    # v_r = v + (omega * L) / 2
-    # v_l = v - (omega * L) / 2
-
-    # Calculate target linear velocity for left and right wheels (m/s)
     # The linear and angular components are summed/differenced
     v_right = linear_x + (angular_z * BASE_WIDTH / 2.0)
     v_left = linear_x - (angular_z * BASE_WIDTH / 2.0)
-
-    # 3. Convert m/s velocity to PWM or a control unit your ESP32 understands
-    # Here, we'll assume the ESP32 expects a simple float value proportional to speed (e.g., -1.0 to 1.0)
-    # Since our motors run through the ESP32, we will simplify the signal to a direct floating point value.
-    # Note: If your ESP32 expects raw RPM, you'd calculate: rpm = v / (2 * pi * WHEEL_RADIUS)
-
-    # For simplicity and robustness, we will send the calculated linear speeds in m/s
-    # The ESP32 will handle the conversion to PWM/RPM.
-
-    # 4. Create the serial command string
-    # Format: "L:v_left,R:v_right;\n"
     command_string = "L:{:.3f},R:{:.3f};\n".format(v_left, v_right)
 
-    # 5. Send command over serial
     if ser and ser.is_open:
         try:
             ser.write(command_string.encode('utf-8'))
