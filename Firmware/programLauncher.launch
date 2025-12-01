@@ -1,0 +1,37 @@
+<launch>
+    <!-- 
+    ROS Launch File for the differential drive robot.
+    This file starts the two main communication nodes and defines the basic 
+    coordinate transforms required by the ROS Navigation Stack.
+    -->
+
+    <group ns="robot_base">
+        <!-- 1. Start the Pi Serial Commander Node -->
+        <!-- This node receives velocity commands (/cmd_vel) and sends them to the ESP32 -->
+        <node pkg="robot_base" type="pi_serial_commander.py" name="pi_commander" output="screen"/>
+
+        <!-- 2. Start the Pi Serial Reader Node -->
+        <!-- This node receives odometry data from the ESP32 and publishes it to /odom -->
+        <node pkg="robot_base" type="serial_reader.py" name="odom_reader" output="screen"/>
+    </group>
+
+    <!-- 3. Publish Static Transforms (TF) -->
+    <!-- These transforms define the fixed, physical relationship between the robot's frames -->
+
+    <!-- A. base_link to lidar_link (RPLiDAR C1) -->
+    <!-- Assuming the LiDAR is mounted 10cm above the base_link, centered -->
+    <node pkg="tf" type="static_transform_publisher" name="base_to_lidar" 
+          args="0.0 0.0 0.10 0 0 0 /base_link /laser_frame 100" />
+          <!-- X=0.0 (forward), Y=0.0 (left/right), Z=0.10 (height), Roll, Pitch, Yaw -->
+          
+    <!-- B. base_link to imu_link (BNO055) -->
+    <!-- Assuming the IMU is centered on the base_link -->
+    <node pkg="tf" type="static_transform_publisher" name="base_to_imu" 
+          args="0.0 0.0 0.05 0 0 0 /base_link /imu_link 100" />
+
+    <!-- C. base_link to base_footprint -->
+    <!-- This is a standard frame required by the Navigation Stack, usually at the floor level -->
+    <node pkg="tf" type="static_transform_publisher" name="base_to_footprint" 
+          args="0 0 0 0 0 0 /base_footprint /base_link 100" />
+
+</launch>
